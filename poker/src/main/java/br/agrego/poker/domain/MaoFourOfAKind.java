@@ -11,7 +11,7 @@ public class MaoFourOfAKind extends Mao {
 	public Mao avalia(Set<Carta> cartas) {
 		Integer quadra;
 		for (Carta cAnterior : cartas) {
-			quadra = 1;
+			quadra = 0;
 			for (Carta cAtual : cartas) {
 				if (cAnterior.getValor()==cAtual.getValor()) {
 					quadra++;

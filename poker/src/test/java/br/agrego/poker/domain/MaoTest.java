@@ -16,7 +16,7 @@ public class MaoTest {
 	public void init() {
 		mao = new MaoStraightFlush();
 		Mao m7 = new MaoFourOfAKind();
-		Mao m6 = new MaoFullHouseh();
+		Mao m6 = new MaoFullHouse();
 		Mao m5 = new MaoFlush();
 		Mao m4 = new MaoThreeOfKind();
 		Mao m3 = new MaoTwoPairs();
@@ -101,12 +101,12 @@ public class MaoTest {
 	@Test
 	public void testaFullHouseh() {
 		Set<Carta> cartas = new TreeSet<Carta>();
+		cartas.add(new Carta(ENaipe.COPAS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.CINCO));
-		cartas.add(new Carta(ENaipe.OUROS, EValor.QUATRO));
-		cartas.add(new Carta(ENaipe.OUROS, EValor.SEIS));
+		cartas.add(new Carta(ENaipe.ESPADA, EValor.CINCO));
+		cartas.add(new Carta(ENaipe.COPAS, EValor.OUITO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.OUITO));
-		cartas.add(new Carta(ENaipe.OUROS, EValor.SETE));
-		assertEquals(MaoFullHouseh.class, mao.avalia(cartas).getClass()); 
+		assertEquals(MaoFullHouse.class, mao.avalia(cartas).getClass()); 
 	}
 	
 	@Test
@@ -114,9 +114,10 @@ public class MaoTest {
 		Set<Carta> cartas = new TreeSet<Carta>();
 		cartas.add(new Carta(ENaipe.COPAS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.ESPADA, EValor.CINCO));
-		cartas.add(new Carta(ENaipe.COPAS, EValor.CINCO));
+		cartas.add(new Carta(ENaipe.PAUS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.ESPADA, EValor.QUATRO));
+		System.out.println(mao.avalia(cartas));
 		assertEquals(MaoFourOfAKind.class, mao.avalia(cartas).getClass()); 
 	}
 	
