@@ -35,8 +35,13 @@ public class MaoStraight extends Mao {
 	}
 
 	@Override
-	public int desempate(Mao mao) {
-		// TODO Auto-generated method stub
+	public int desempate(Mao other) {
+		Carta cartaThis = getCartas().iterator().next();
+		Carta cartaOther = other.getCartas().iterator().next();
+
+		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
+		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
+		
 		return 0;
 	}
 

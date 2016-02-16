@@ -1,5 +1,7 @@
 package br.agrego.poker.domain;
 
+import java.util.Set;
+
 
 /**
  * Four of a kind: 4 cartas com o mesmo valor. Quando as mãos forem iguais ganha quem tiver as 4 cartas maiores.
@@ -33,10 +35,35 @@ public class MaoFourOfAKind extends Mao {
 	}
 
 	@Override
-	public int desempate(Mao mao) {
-		// TODO Auto-generated method stub
+	public int desempate(Mao other) {
+		Carta cartaThis = getCartaQuadra(getCartas());
+		Carta cartaOther = getCartaQuadra(other.getCartas());
+
+		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
+			
+			return 1;
+		}
+		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
+			return -1;
+		}
+		
 		return 0;
 	}
 
-
+	private Carta getCartaQuadra(Set<Carta> cartas) {
+		Carta cartaAux=null;
+		for (Carta carta : getCartas()) {
+			if (cartaAux==null) {
+				cartaAux = carta;
+				continue;
+			}
+			if (carta.getValor()==cartaAux.getValor()) {
+				break;
+			}
+			
+		}
+		return cartaAux;
+		
+	}
+	
 }

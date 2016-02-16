@@ -4,6 +4,7 @@ import java.util.Set;
 
 public abstract class Mao {
 
+	private Carta cartaDesempate;
 	private Mao	mao;
 	private final Integer	ponto;
 	private Set<Carta>	cartas;
@@ -30,7 +31,7 @@ public abstract class Mao {
 		return ponto;
 	}
 	
-	public abstract int desempate(Mao mao) ;
+	public abstract int desempate(Mao other) ;
 
 	public Set<Carta> getCartas() {
 		return cartas;
@@ -38,5 +39,13 @@ public abstract class Mao {
 	
 	public Mao proximo() {
 		return this.mao;
+	}
+
+	public Carta getCartaDesempate() {
+		return cartaDesempate;
+	}
+
+	public void setCartaDesempate(Carta cartaDesempate) {
+		this.cartaDesempate = cartaDesempate;
 	}
 }
