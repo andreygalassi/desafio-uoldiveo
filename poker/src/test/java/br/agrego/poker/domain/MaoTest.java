@@ -15,15 +15,17 @@ public class MaoTest {
 	@Before
 	public void init() {
 		mao = new MaoStraightFlush();
-		Mao m7 = new MaoFourOfAKind();
-		Mao m6 = new MaoFullHouse();
+		Mao m8 = new MaoFourOfAKind();
+		Mao m7 = new MaoFullHouse();
+		Mao m6 = new MaoStraight();
 		Mao m5 = new MaoFlush();
 		Mao m4 = new MaoThreeOfKind();
 		Mao m3 = new MaoTwoPairs();
 		Mao m2 = new MaoPairs();
 		Mao m1 = new MaoHighCard();
 		
-		mao.setProximo(m7);
+		mao.setProximo(m8);
+		m8.setProximo(m7);
 		m7.setProximo(m6);
 		m6.setProximo(m5);
 		m5.setProximo(m4);
@@ -79,7 +81,7 @@ public class MaoTest {
 	@Test
 	public void testaMaoStraight() {
 		Set<Carta> cartas = new TreeSet<Carta>();
-		cartas.add(new Carta(ENaipe.COPAS, EValor.DOIS));
+		cartas.add(new Carta(ENaipe.PAUS, EValor.DOIS));
 		cartas.add(new Carta(ENaipe.COPAS, EValor.QUATRO));
 		cartas.add(new Carta(ENaipe.ESPADA, EValor.TRES));
 		cartas.add(new Carta(ENaipe.COPAS, EValor.SEIS));
@@ -117,7 +119,6 @@ public class MaoTest {
 		cartas.add(new Carta(ENaipe.PAUS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.ESPADA, EValor.QUATRO));
-		System.out.println(mao.avalia(cartas));
 		assertEquals(MaoFourOfAKind.class, mao.avalia(cartas).getClass()); 
 	}
 	

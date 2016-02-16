@@ -2,6 +2,9 @@ package br.agrego.poker.domain;
 
 import java.util.Set;
 
+/**
+ * Straight: Mão contém 5 cartas consecutiva de naipes diferentes. Quando as mãos forem iguais ganha quem tiver o quarteto mais alto.
+ */
 public class MaoStraight extends Mao {
 
 	@Override
