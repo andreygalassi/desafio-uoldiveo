@@ -31,4 +31,13 @@ public enum EValor {
 	public Integer getValor() {
 		return valor;
 	}
+	
+	public static EValor get(String simbolo) throws MyException {
+		for (EValor valor : EValor.values()) {
+			if (valor.simbolo.equals(simbolo)) {
+				return valor;
+			}
+		}
+		throw new MyException("Não é um Valor Válido");
+	}
 }

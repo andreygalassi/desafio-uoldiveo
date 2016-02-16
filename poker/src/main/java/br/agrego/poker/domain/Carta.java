@@ -12,6 +12,16 @@ public class Carta implements Comparable<Carta> {
 		this.valor = valor;
 	}
 	
+	public Carta(String carta) throws MyException {
+		super();
+		if (carta==null || carta.length()!=2) throw new MyException("Criação de carta inválida");
+		
+		this.valor = EValor.get(carta.toUpperCase().substring(0, 1));
+		this.naipe = ENaipe.get(carta.toUpperCase().substring(1, 2));
+		
+
+	}
+
 	@Override
 	public String toString() {
 		return valor.toString()+naipe.toString();

@@ -18,4 +18,12 @@ public class Jogador {
 			cartas.add(carta);
 		}
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public Set<Carta> getCartas() {
+		return cartas;
+	}
 }

@@ -8,6 +8,12 @@ public class Programa {
 	
 	public static void main(String[] args) {
 	
+		
+		Jogador black = new Jogador("Black");
+		Jogador white = new Jogador("White");
+		
+		
+		
 //		Set<Carta> cartas = new LinkedHashSet<Carta>();
 		Set<Carta> cartas = new TreeSet<Carta>();
 

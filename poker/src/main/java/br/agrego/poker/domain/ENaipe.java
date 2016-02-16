@@ -16,4 +16,13 @@ public enum ENaipe {
 	public String toString() {
 		return simbolo;
 	}
+	
+	public static ENaipe get(String simbolo) throws MyException {
+		for (ENaipe naipe : ENaipe.values()) {
+			if (naipe.simbolo.equals(simbolo)) {
+				return naipe;
+			}
+		}
+		throw new MyException("Não é um Nipe Válido");
+	}
 }
