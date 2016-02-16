@@ -1,6 +1,5 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
 
 /**
  * Flush: Mão contém 5 cartas do mesmo naipe. Quando as mãos forem iguais ganha quem tiver a carta mais alta.
@@ -13,14 +12,14 @@ public class MaoFlush extends Mao {
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	public Mao executa() {
 		Carta cAnterior=null;
-		for (Carta cAtual : cartas) {
+		for (Carta cAtual : getCartas()) {
 			if (cAnterior==null) {
 				cAnterior = cAtual;
 				continue;
 			}
-			if (cAnterior.getNaipe()!=cAtual.getNaipe()) return mao.avalia(cartas);
+			if (cAnterior.getNaipe()!=cAtual.getNaipe()) return proximo().avalia(getCartas());
 		}
 		return this;
 	}
@@ -31,7 +30,7 @@ public class MaoFlush extends Mao {
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+	public int desempate(Mao mao) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

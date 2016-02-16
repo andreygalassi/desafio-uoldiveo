@@ -2,6 +2,9 @@ package br.agrego.poker.domain;
 
 public class Juiz {
 
+	private static final String	TIE	= " tie ";
+	private static final String	WINS	= " wins ";
+	
 	private final Jogador	jogador1;
 	private final Jogador	jogador2;
 	private final Mao	mao;
@@ -34,13 +37,13 @@ public class Juiz {
 		Mao maoJogador2 = mao.avalia(jogador2.getCartas());
 		
 		if (maoJogador1.getPonto() > maoJogador2.getPonto()) {
-			return jogador1.getNome() + " wins " + maoJogador1;
+			return jogador1.getNome() + WINS + maoJogador1;
 		}else if (maoJogador1.getPonto() < maoJogador2.getPonto()) {
-			return jogador2.getNome() + " wins " + maoJogador2;
+			return jogador2.getNome() + WINS + maoJogador2;
 		}else {
-			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==-1) return jogador2.getNome() + " wins " + maoJogador2;
-			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==0) return " tie " + maoJogador1;
-			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==1) return jogador1.getNome() + " wins " + maoJogador1;
+			if (maoJogador1.desempate(maoJogador2)==-1) return jogador2.getNome() + WINS + maoJogador2;
+			if (maoJogador1.desempate(maoJogador2)==0) return TIE + maoJogador1;
+			if (maoJogador1.desempate(maoJogador2)==1) return jogador1.getNome() + WINS + maoJogador1;
 		}
 		return "";
 		

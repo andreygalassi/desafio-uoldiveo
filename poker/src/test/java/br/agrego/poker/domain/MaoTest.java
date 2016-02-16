@@ -119,6 +119,7 @@ public class MaoTest {
 		cartas.add(new Carta(ENaipe.PAUS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.CINCO));
 		cartas.add(new Carta(ENaipe.ESPADA, EValor.QUATRO));
+		System.out.println(cartas);
 		assertEquals(MaoFourOfAKind.class, mao.avalia(cartas).getClass()); 
 	}
 	

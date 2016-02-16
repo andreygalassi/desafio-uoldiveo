@@ -1,7 +1,6 @@
 package br.agrego.poker.domain;
 
 import java.util.Iterator;
-import java.util.Set;
 
 /**
  * High Card: Mãos que não se encaixam qualquer categoria superior são classificado pelo valor de sua carta mais alta. 
@@ -15,7 +14,7 @@ public class MaoHighCard extends Mao{
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	protected Mao executa() {
 		return this;
 	}
 	
@@ -25,13 +24,13 @@ public class MaoHighCard extends Mao{
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
-		for (Iterator<Carta> iterator1 = cartas1.iterator(), iterator2 = cartas2.iterator(); iterator1.hasNext(); iterator2.hasNext()) {
-			Carta carta1 = iterator1.next(); 
-			Carta carta2 = iterator2.next();
-			if (carta1.getValor()==carta2.getValor()) continue;
-			if (carta1.getValor().getValor()>carta2.getValor().getValor()) return 1;
-			if (carta1.getValor().getValor()<carta2.getValor().getValor()) return -1;
+	public int desempate(Mao other) {
+		for (Iterator<Carta> iThis = this.getCartas().iterator(), iOther = other.getCartas().iterator(); iThis.hasNext(); iOther.hasNext()) {
+			Carta cartaThis = iThis.next(); 
+			Carta cartaOther = iOther.next();
+			if (cartaThis.getValor()==cartaOther.getValor()) continue;
+			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
+			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
 			
 		}
 		

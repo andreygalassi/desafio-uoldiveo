@@ -1,6 +1,5 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
 
 /**
  * 3 cartas do mesmo valor e 2 cartas de mesmo valor. Quando as mãos forem iguais ganha quem tiver o trio mais alto.
@@ -13,10 +12,10 @@ public class MaoFullHouse extends Mao {
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	public Mao executa() {
 		Integer qtValorDiferente=0;
 		Carta cAnterior=null;
-		for (Carta carta : cartas) {
+		for (Carta carta : getCartas()) {
 			if (cAnterior==null) cAnterior = carta;
 			if (cAnterior.getValor()!=carta.getValor()) {
 				cAnterior = carta;
@@ -26,7 +25,7 @@ public class MaoFullHouse extends Mao {
 		
 		if (qtValorDiferente==1)return this;
 
-		return mao.avalia(cartas);
+		return proximo().avalia(getCartas());
 	}
 	
 	@Override
@@ -35,7 +34,7 @@ public class MaoFullHouse extends Mao {
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+	public int desempate(Mao mao) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

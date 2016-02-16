@@ -4,14 +4,20 @@ import java.util.Set;
 
 public abstract class Mao {
 
-	protected Mao	mao;
+	private Mao	mao;
 	private final Integer	ponto;
+	private Set<Carta>	cartas;
 	
 	public Mao(Integer ponto) {
 		this.ponto = ponto;
 	}
 
-	public abstract Mao avalia(Set<Carta> cartas) ;
+	protected abstract Mao executa() ;
+	
+	public Mao avalia(Set<Carta> cartas) {
+		this.cartas = cartas;
+		return executa();
+	}
 	
 	public void setProximo(Mao mao) {
 		this.mao = mao;
@@ -24,5 +30,13 @@ public abstract class Mao {
 		return ponto;
 	}
 	
-	public abstract int desempate(Set<Carta> cartas1,Set<Carta> cartas2) ;		
+	public abstract int desempate(Mao mao) ;
+
+	public Set<Carta> getCartas() {
+		return cartas;
+	}		
+	
+	public Mao proximo() {
+		return this.mao;
+	}
 }

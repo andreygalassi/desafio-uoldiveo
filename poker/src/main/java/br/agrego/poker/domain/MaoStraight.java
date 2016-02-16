@@ -1,6 +1,5 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
 
 /**
  * Straight: Mão contém 5 cartas consecutiva de naipes diferentes. Quando as mãos forem iguais ganha quem tiver o quarteto mais alto.
@@ -13,9 +12,9 @@ public class MaoStraight extends Mao {
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	public Mao executa() {
 		Carta cAnterior=null;
-		for (Carta cAtual : cartas) {
+		for (Carta cAtual : getCartas()) {
 			if (cAnterior==null) {
 				cAnterior = cAtual;
 				continue;
@@ -24,7 +23,7 @@ public class MaoStraight extends Mao {
 				cAnterior = cAtual;
 				continue;
 			}else {
-				return mao.avalia(cartas);
+				return proximo().avalia(getCartas());
 			}
 		}
 		return this;
@@ -36,7 +35,7 @@ public class MaoStraight extends Mao {
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+	public int desempate(Mao mao) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

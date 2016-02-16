@@ -1,6 +1,5 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
 
 public class MaoThreeOfKind extends Mao {
 
@@ -10,11 +9,11 @@ public class MaoThreeOfKind extends Mao {
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	public Mao executa() {
 		boolean trio = false;
-		for (Carta carta1 : cartas) {
+		for (Carta carta1 : getCartas()) {
 			trio = false;
-			for (Carta carta2 : cartas) {
+			for (Carta carta2 : getCartas()) {
 				if (carta1!=carta2 && carta1.getValor()==carta2.getValor()&&!trio) {
 					trio = true;
 				}else if(carta1!=carta2 && carta1.getValor()==carta2.getValor()&&trio) {
@@ -22,7 +21,7 @@ public class MaoThreeOfKind extends Mao {
 				}
 			}
 		}
-		return mao.avalia(cartas);
+		return proximo().avalia(getCartas());
 	}
 	
 	@Override
@@ -31,7 +30,7 @@ public class MaoThreeOfKind extends Mao {
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+	public int desempate(Mao mao) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

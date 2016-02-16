@@ -1,6 +1,5 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
 
 /**
  * Straight Flush: 5 cartas do mesmo naipe com consecutiva de naipes iguais. Quando as mãos forem iguais ganha quem tiver a sequencia mais alta.
@@ -13,19 +12,19 @@ public class MaoStraightFlush extends Mao {
 	}
 
 	@Override
-	public Mao avalia(Set<Carta> cartas) {
+	public Mao executa() {
 		Carta cAnterior=null;
-		for (Carta cAtual : cartas) {
+		for (Carta cAtual : getCartas()) {
 			if (cAnterior==null) {
 				cAnterior = cAtual;
 				continue;
 			}
-			if (cAnterior.getNaipe()!=cAtual.getNaipe()) return mao.avalia(cartas);
+			if (cAnterior.getNaipe()!=cAtual.getNaipe()) return proximo().avalia(getCartas());
 			if (cAtual.getValor().getValor()==cAnterior.getValor().getValor()-1) {
 				cAnterior = cAtual;
 				continue;
 			}else {
-				return mao.avalia(cartas);
+				return proximo().avalia(getCartas());
 			}
 		}
 		return this;
@@ -37,7 +36,7 @@ public class MaoStraightFlush extends Mao {
 	}
 
 	@Override
-	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+	public int desempate(Mao mao) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
