@@ -37,12 +37,22 @@ public class MaoPairs extends Mao {
 		for (Carta cartaOther : other.getCartas()) {
 			for (Carta carta2 : other.getCartas()) {
 				if (cartaOther!=carta2 && cartaOther.getValor()==carta2.getValor()) {
-					if (carta.getValor()==cartaOther.getValor()) return 0;
-					if (carta.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
-					if (carta.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
+					if (carta.getValor()==cartaOther.getValor()) { 
+						setCartaDesempate(carta);
+						return 0;
+					}
+					if (carta.getValor().getValor()>cartaOther.getValor().getValor()) {
+						setCartaDesempate(carta);
+						return 1;
+					}
+					if (carta.getValor().getValor()<cartaOther.getValor().getValor()) {
+						setCartaDesempate(cartaOther);
+						return -1;
+					}
 				}
 			}
 		}
+		setCartaDesempate(carta);
 		return 0;
 	}
 

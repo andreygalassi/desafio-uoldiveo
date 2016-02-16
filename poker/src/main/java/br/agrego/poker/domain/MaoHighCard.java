@@ -25,15 +25,23 @@ public class MaoHighCard extends Mao{
 
 	@Override
 	public int desempate(Mao other) {
+		Carta cartaThis=null;
+		Carta cartaOther=null;
 		for (Iterator<Carta> iThis = this.getCartas().iterator(), iOther = other.getCartas().iterator(); iThis.hasNext(); iOther.hasNext()) {
-			Carta cartaThis = iThis.next(); 
-			Carta cartaOther = iOther.next();
+			cartaThis = iThis.next(); 
+			cartaOther = iOther.next();
 			if (cartaThis.getValor()==cartaOther.getValor()) continue;
-			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
-			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
+			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
+				setCartaDesempate(cartaThis);
+				return 1;
+			}
+			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
+				setCartaDesempate(cartaOther);
+				return -1;
+			}
 			
 		}
-		
+		setCartaDesempate(cartaThis);
 		return 0;
 	}
 

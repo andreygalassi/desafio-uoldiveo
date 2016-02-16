@@ -42,7 +42,7 @@ public class MaoFlush extends Mao {
 			setCartaDesempate(cartaOther);
 			return -1;
 		}
-		
+		setCartaDesempate(cartaThis);
 		return 0;
 	}
 

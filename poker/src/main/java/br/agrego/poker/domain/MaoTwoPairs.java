@@ -43,16 +43,25 @@ public class MaoTwoPairs extends Mao {
 		Set<Carta> duqueThis = separaDuques(getCartas());
 		Set<Carta> duqueOther = separaDuques(other.getCartas());
 		
+		Carta cartaThis=null;
+		Carta cartaOther=null;
 		for (Iterator<Carta> iThis = duqueThis.iterator(), iOther = duqueOther.iterator(); iThis.hasNext();) {
-			Carta cartaThis = iThis.next();
-			Carta cartaOther = iOther.next();
+			cartaThis = iThis.next();
+			cartaOther = iOther.next();
 
 			if (cartaThis.getValor()==cartaOther.getValor()) continue;
-			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
-			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
+			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
+				setCartaDesempate(cartaThis);
+				return 1;
+			}
+			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
+				setCartaDesempate(cartaOther);
+				return -1;
+			}
 			
 		}
 		
+		setCartaDesempate(cartaThis);
 		return 0;
 	}
 	

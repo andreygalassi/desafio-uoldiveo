@@ -40,9 +40,16 @@ public class MaoStraightFlush extends Mao {
 		Carta cartaThis = getCartas().iterator().next();
 		Carta cartaOther = other.getCartas().iterator().next();
 
-		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
-		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
+		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
+			setCartaDesempate(cartaThis);
+			return 1;
+		}
+		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
+			setCartaDesempate(cartaOther);
+			return -1;
+		}
 		
+		setCartaDesempate(cartaThis);
 		return 0;
 	}
 

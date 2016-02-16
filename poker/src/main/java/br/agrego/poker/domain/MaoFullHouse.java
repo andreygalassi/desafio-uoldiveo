@@ -40,9 +40,15 @@ public class MaoFullHouse extends Mao {
 		Carta cartaThis = getCartaTrinca(getCartas());
 		Carta cartaOther = getCartaTrinca(other.getCartas());
 
-		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) return 1;
-		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) return -1;
-		
+		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
+			setCartaDesempate(cartaThis);
+			return 1;
+		}
+		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
+			setCartaDesempate(cartaOther);
+			return -1;
+		}
+		setCartaDesempate(cartaThis);
 		return 0;
 	}
 
