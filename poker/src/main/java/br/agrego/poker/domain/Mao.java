@@ -5,6 +5,11 @@ import java.util.Set;
 public abstract class Mao {
 
 	protected Mao	mao;
+	private final Integer	ponto;
+	
+	public Mao(Integer ponto) {
+		this.ponto = ponto;
+	}
 
 	public abstract Mao avalia(Set<Carta> cartas) ;
 	
@@ -15,4 +20,7 @@ public abstract class Mao {
 	@Override
 	public abstract String toString() ;
 
+	public Integer getPonto() {
+		return ponto;
+	}
 }

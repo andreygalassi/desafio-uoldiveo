@@ -7,6 +7,11 @@ import java.util.Set;
  */
 public class MaoFullHouse extends Mao {
 
+	public MaoFullHouse(Integer ponto) {
+		super(ponto);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Mao avalia(Set<Carta> cartas) {
 		Integer qtValorDiferente=0;

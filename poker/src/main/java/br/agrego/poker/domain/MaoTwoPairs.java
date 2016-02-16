@@ -4,6 +4,11 @@ import java.util.Set;
 
 public class MaoTwoPairs extends Mao {
 	
+	public MaoTwoPairs(Integer ponto) {
+		super(ponto);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Mao avalia(Set<Carta> cartas) {
 		EValor primeiroPar = null;

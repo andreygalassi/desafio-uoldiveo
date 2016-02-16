@@ -7,6 +7,11 @@ import java.util.Set;
  */
 public class MaoStraight extends Mao {
 
+	public MaoStraight(Integer ponto) {
+		super(ponto);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Mao avalia(Set<Carta> cartas) {
 		Carta cAnterior=null;

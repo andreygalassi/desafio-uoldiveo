@@ -8,7 +8,7 @@ import org.junit.Test;
 import br.agrego.poker.util.JogadorFactory;
 
 public class JogadorTest {
-	//P=Paus, C=Copas, O=Ouros, E=Espada
+
 	@Test
 	public void deveCriarJogadorCom5CartasValidas() throws MyException {
 		Jogador jogador = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 5P");

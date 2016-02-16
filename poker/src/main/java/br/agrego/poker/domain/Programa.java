@@ -1,45 +1,56 @@
 package br.agrego.poker.domain;
 
-import java.util.Set;
-import java.util.TreeSet;
+import br.agrego.poker.util.JogadorFactory;
+
 
 
 public class Programa {
 	
 	public static void main(String[] args) {
 	
-		
-		Jogador black = new Jogador("Black");
-		Jogador white = new Jogador("White");
-		
-		
-		
-//		Set<Carta> cartas = new LinkedHashSet<Carta>();
-		Set<Carta> cartas = new TreeSet<Carta>();
-
-		cartas.add(new Carta(ENaipe.COPAS, EValor.DOIS));
-		cartas.add(new Carta(ENaipe.COPAS, EValor.CINCO));
-		cartas.add(new Carta(ENaipe.ESPADA, EValor.AS));
-		cartas.add(new Carta(ENaipe.COPAS, EValor.DEZ));
-		cartas.add(new Carta(ENaipe.OUROS, EValor.DAMA));
-
-		Set<Carta> cartas2 = new TreeSet<Carta>();
-		
-		cartas2.add(new Carta(ENaipe.COPAS, EValor.DOIS));
-		cartas2.add(new Carta(ENaipe.COPAS, EValor.CINCO));
-		cartas2.add(new Carta(ENaipe.ESPADA, EValor.CINCO));
-		cartas2.add(new Carta(ENaipe.COPAS, EValor.DEZ));
-		cartas2.add(new Carta(ENaipe.OUROS, EValor.DEZ));
+		Jogador black;
+		Jogador white;
+		try {
+			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 4P");
+			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 5P");
+			Juiz juiz = new Juiz(black, white);
+			
+			System.out.println(juiz.avalia());
+		} catch (MyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
-		Mao m1 = new MaoTwoPairs();
-		Mao m2 = new MaoPairs();
-		Mao m3 = new MaoHighCard();
-		
-		m1.setProximo(m2);
-		m2.setProximo(m3);
-		
-		System.out.println(m1.avalia(cartas).toString());
+//		
+//		
+//		
+////		Set<Carta> cartas = new LinkedHashSet<Carta>();
+//		Set<Carta> cartas = new TreeSet<Carta>();
+//
+//		cartas.add(new Carta(ENaipe.COPAS, EValor.DOIS));
+//		cartas.add(new Carta(ENaipe.COPAS, EValor.CINCO));
+//		cartas.add(new Carta(ENaipe.ESPADA, EValor.AS));
+//		cartas.add(new Carta(ENaipe.COPAS, EValor.DEZ));
+//		cartas.add(new Carta(ENaipe.OUROS, EValor.DAMA));
+//
+//		Set<Carta> cartas2 = new TreeSet<Carta>();
+//		
+//		cartas2.add(new Carta(ENaipe.COPAS, EValor.DOIS));
+//		cartas2.add(new Carta(ENaipe.COPAS, EValor.CINCO));
+//		cartas2.add(new Carta(ENaipe.ESPADA, EValor.CINCO));
+//		cartas2.add(new Carta(ENaipe.COPAS, EValor.DEZ));
+//		cartas2.add(new Carta(ENaipe.OUROS, EValor.DEZ));
+//		
+//		
+//		Mao m1 = new MaoTwoPairs();
+//		Mao m2 = new MaoPairs();
+//		Mao m3 = new MaoHighCard();
+//		
+//		m1.setProximo(m2);
+//		m2.setProximo(m3);
+//		
+//		System.out.println(m1.avalia(cartas).toString());
 //		System.out.println(m1.avalia(cartas2).toString());
 		
 	}

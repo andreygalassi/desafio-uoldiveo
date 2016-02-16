@@ -7,6 +7,11 @@ import java.util.Set;
  */
 public class MaoFourOfAKind extends Mao {
 
+	public MaoFourOfAKind(Integer ponto) {
+		super(ponto);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Mao avalia(Set<Carta> cartas) {
 		Integer quadra;

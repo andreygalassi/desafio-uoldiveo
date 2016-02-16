@@ -14,15 +14,15 @@ public class MaoTest {
 	
 	@Before
 	public void init() {
-		mao = new MaoStraightFlush();
-		Mao m8 = new MaoFourOfAKind();
-		Mao m7 = new MaoFullHouse();
-		Mao m6 = new MaoStraight();
-		Mao m5 = new MaoFlush();
-		Mao m4 = new MaoThreeOfKind();
-		Mao m3 = new MaoTwoPairs();
-		Mao m2 = new MaoPairs();
-		Mao m1 = new MaoHighCard();
+		mao = new MaoStraightFlush(8);
+		Mao m8 = new MaoFourOfAKind(7);
+		Mao m7 = new MaoFullHouse(6);
+		Mao m6 = new MaoStraight(5);
+		Mao m5 = new MaoFlush(4);
+		Mao m4 = new MaoThreeOfKind(3);
+		Mao m3 = new MaoTwoPairs(2);
+		Mao m2 = new MaoPairs(1);
+		Mao m1 = new MaoHighCard(0);
 		
 		mao.setProximo(m8);
 		m8.setProximo(m7);
