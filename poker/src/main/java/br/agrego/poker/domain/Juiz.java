@@ -38,8 +38,11 @@ public class Juiz {
 		}else if (maoJogador1.getPonto() < maoJogador2.getPonto()) {
 			return jogador2.getNome() + " wins " + maoJogador2;
 		}else {
-			return " tie " + maoJogador1;
+			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==-1) return jogador2.getNome() + " wins " + maoJogador2;
+			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==0) return " tie " + maoJogador1;
+			if (maoJogador1.desempate(jogador1.getCartas(), jogador2.getCartas())==1) return jogador1.getNome() + " wins " + maoJogador1;
 		}
+		return "";
 		
 	}
 }

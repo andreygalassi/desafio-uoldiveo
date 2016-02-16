@@ -21,7 +21,7 @@ public class MaoStraightFlush extends Mao {
 				continue;
 			}
 			if (cAnterior.getNaipe()!=cAtual.getNaipe()) return mao.avalia(cartas);
-			if (cAtual.getValor().getValor()==cAnterior.getValor().getValor()+1) {
+			if (cAtual.getValor().getValor()==cAnterior.getValor().getValor()-1) {
 				cAnterior = cAtual;
 				continue;
 			}else {
@@ -35,5 +35,12 @@ public class MaoStraightFlush extends Mao {
 	public String toString() {
 		return "Straight Flush";
 	}
+
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

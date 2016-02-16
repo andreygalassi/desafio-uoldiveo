@@ -1,5 +1,7 @@
 package br.agrego.poker.domain;
 
+import br.agrego.poker.exception.MyException;
+
 
 public class Carta implements Comparable<Carta> {
 
@@ -56,7 +58,7 @@ public class Carta implements Comparable<Carta> {
 	public int compareTo(Carta o) {
 		if (this.equals(o)) return 0;
 		if (this.valor.getValor().compareTo(o.valor.getValor()) == 0) return this.naipe.compareTo(o.naipe);
-		return this.valor.getValor().compareTo(o.valor.getValor());
+		return o.valor.getValor().compareTo(this.valor.getValor());
 	}
 
 	public EValor getValor() {

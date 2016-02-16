@@ -23,4 +23,6 @@ public abstract class Mao {
 	public Integer getPonto() {
 		return ponto;
 	}
+	
+	public abstract int desempate(Set<Carta> cartas1,Set<Carta> cartas2) ;		
 }

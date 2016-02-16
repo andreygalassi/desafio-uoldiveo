@@ -1,5 +1,6 @@
 package br.agrego.poker.domain;
 
+import br.agrego.poker.exception.MyException;
 import br.agrego.poker.util.JogadorFactory;
 
 
@@ -11,8 +12,8 @@ public class Programa {
 		Jogador black;
 		Jogador white;
 		try {
-			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 4P");
-			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 5P");
+			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 5P");
+			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 6P");
 			Juiz juiz = new Juiz(black, white);
 			
 			System.out.println(juiz.avalia());

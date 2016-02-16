@@ -26,10 +26,18 @@ public class MaoFourOfAKind extends Mao {
 		}
 		return mao.avalia(cartas);
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Four of a Kind";
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

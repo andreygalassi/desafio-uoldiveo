@@ -28,4 +28,11 @@ public class MaoPairs extends Mao {
 		return "Pairs";
 	}
 
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }

@@ -34,4 +34,12 @@ public class MaoFullHouse extends Mao {
 		return "Full House";
 	}
 
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
 }

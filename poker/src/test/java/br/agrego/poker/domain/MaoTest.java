@@ -130,6 +130,7 @@ public class MaoTest {
 		cartas.add(new Carta(ENaipe.OUROS, EValor.SEIS));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.OUITO));
 		cartas.add(new Carta(ENaipe.OUROS, EValor.SETE));
+		System.out.println(cartas);
 		assertEquals(MaoStraightFlush.class, mao.avalia(cartas).getClass()); 
 	}
 }

@@ -20,7 +20,7 @@ public class MaoStraight extends Mao {
 				cAnterior = cAtual;
 				continue;
 			}
-			if (cAtual.getValor().getValor()==cAnterior.getValor().getValor()+1) {
+			if (cAtual.getValor().getValor()==cAnterior.getValor().getValor()-1) {
 				cAnterior = cAtual;
 				continue;
 			}else {
@@ -33,6 +33,12 @@ public class MaoStraight extends Mao {
 	@Override
 	public String toString() {
 		return "Straight";
+	}
+
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

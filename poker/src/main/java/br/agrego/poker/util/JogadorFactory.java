@@ -2,7 +2,7 @@ package br.agrego.poker.util;
 
 import br.agrego.poker.domain.Carta;
 import br.agrego.poker.domain.Jogador;
-import br.agrego.poker.domain.MyException;
+import br.agrego.poker.exception.MyException;
 
 public class JogadorFactory {
 

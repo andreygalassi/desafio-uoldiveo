@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import br.agrego.poker.exception.MyException;
 import br.agrego.poker.util.JogadorFactory;
 
 public class JogadorTest {

@@ -1,4 +1,4 @@
-package br.agrego.poker.domain;
+package br.agrego.poker.exception;
 
 public class MyException extends Exception{
 

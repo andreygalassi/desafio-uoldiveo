@@ -30,4 +30,11 @@ public class MaoFlush extends Mao {
 		return "Flush";
 	}
 
+	@Override
+	public int desempate(Set<Carta> cartas1, Set<Carta> cartas2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }

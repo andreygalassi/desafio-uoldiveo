@@ -1,5 +1,7 @@
 package br.agrego.poker.domain;
 
+import br.agrego.poker.exception.MyException;
+
 public enum EValor {
 	DOIS("2",2),
 	TRES("3",3),

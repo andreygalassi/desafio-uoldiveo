@@ -1,5 +1,7 @@
 package br.agrego.poker.domain;
 
+import br.agrego.poker.exception.MyException;
+
 public enum ENaipe {
 	PAUS("P"),
 	COPAS("C"),
