@@ -54,7 +54,6 @@ public class Carta implements Comparable<Carta> {
 		return true;
 	}
 
-	@Override
 	public int compareTo(Carta o) {
 		if (this.equals(o)) return 0;
 		if (this.valor.getValor().compareTo(o.valor.getValor()) == 0) return this.naipe.compareTo(o.naipe);

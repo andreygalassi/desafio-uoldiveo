@@ -13,6 +13,7 @@ public class Programa {
 	
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		String nmJogador1;
