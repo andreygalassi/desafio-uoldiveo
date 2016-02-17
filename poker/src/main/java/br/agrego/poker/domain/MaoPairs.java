@@ -29,7 +29,7 @@ public class MaoPairs extends Mao {
 	
 	@Override
 	public String toString() {
-		return "Pairs";
+		return "Pairs: ";
 	}
 
 	@Override
@@ -38,21 +38,21 @@ public class MaoPairs extends Mao {
 			for (Carta carta2 : other.getCartas()) {
 				if (cartaOther!=carta2 && cartaOther.getValor()==carta2.getValor()) {
 					if (carta.getValor()==cartaOther.getValor()) { 
-						setCartaDesempate(carta);
+						setValorDesempate(carta.getValor());
 						return 0;
 					}
 					if (carta.getValor().getValor()>cartaOther.getValor().getValor()) {
-						setCartaDesempate(carta);
+						setValorDesempate(carta.getValor());
 						return 1;
 					}
 					if (carta.getValor().getValor()<cartaOther.getValor().getValor()) {
-						setCartaDesempate(cartaOther);
+						setValorDesempate(cartaOther.getValor());
 						return -1;
 					}
 				}
 			}
 		}
-		setCartaDesempate(carta);
+		setValorDesempate(carta.getValor());
 		return 0;
 	}
 

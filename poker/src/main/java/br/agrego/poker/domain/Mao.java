@@ -4,7 +4,7 @@ import java.util.Set;
 
 public abstract class Mao {
 
-	private Carta cartaDesempate;
+	private EValor valorDesempate;
 	private Mao	mao;
 	private final Integer	ponto;
 	private Set<Carta>	cartas;
@@ -41,11 +41,11 @@ public abstract class Mao {
 		return this.mao;
 	}
 
-	public Carta getCartaDesempate() {
-		return cartaDesempate;
+	public EValor getValorDesempate() {
+		return valorDesempate;
 	}
 
-	public void setCartaDesempate(Carta cartaDesempate) {
-		this.cartaDesempate = cartaDesempate;
+	public void setValorDesempate(EValor cartaDesempate) {
+		this.valorDesempate = cartaDesempate;
 	}
 }

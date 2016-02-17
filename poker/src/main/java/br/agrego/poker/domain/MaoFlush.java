@@ -26,7 +26,7 @@ public class MaoFlush extends Mao {
 	
 	@Override
 	public String toString() {
-		return "Flush";
+		return "Flush: ";
 	}
 
 	@Override
@@ -35,14 +35,14 @@ public class MaoFlush extends Mao {
 		Carta cartaOther = other.getCartas().iterator().next();
 
 		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaThis);
+			setValorDesempate(cartaThis.getValor());
 			return 1;
 		}
 		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaOther);
+			setValorDesempate(cartaOther.getValor());
 			return -1;
 		}
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 

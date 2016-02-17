@@ -30,7 +30,7 @@ public class MaoThreeOfKind extends Mao {
 	
 	@Override
 	public String toString() {
-		return "Three of Kind";
+		return "Three of Kind: ";
 	}
 
 	@Override
@@ -39,14 +39,14 @@ public class MaoThreeOfKind extends Mao {
 		Carta cartaOther = getCartaTrinca(other.getCartas());
 		
 		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaThis);
+			setValorDesempate(cartaThis.getValor());
 			return 1;
 		}
 		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaOther);
+			setValorDesempate(cartaOther.getValor());
 			return -1;
 		}
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 	

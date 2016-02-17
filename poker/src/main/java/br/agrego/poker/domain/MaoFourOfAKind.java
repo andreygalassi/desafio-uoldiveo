@@ -31,7 +31,7 @@ public class MaoFourOfAKind extends Mao {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Four of a Kind: ";
 	}
 
 	@Override
@@ -40,14 +40,14 @@ public class MaoFourOfAKind extends Mao {
 		Carta cartaOther = getCartaQuadra(other.getCartas());
 
 		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaThis);
+			setValorDesempate(cartaThis.getValor());
 			return 1;
 		}
 		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaOther);
+			setValorDesempate(cartaOther.getValor());
 			return -1;
 		}
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 

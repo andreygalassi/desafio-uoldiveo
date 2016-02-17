@@ -32,7 +32,7 @@ public class MaoFullHouse extends Mao {
 	
 	@Override
 	public String toString() {
-		return "Full House";
+		return "Full House: ";
 	}
 
 	@Override
@@ -41,14 +41,14 @@ public class MaoFullHouse extends Mao {
 		Carta cartaOther = getCartaTrinca(other.getCartas());
 
 		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaThis);
+			setValorDesempate(cartaThis.getValor());
 			return 1;
 		}
 		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaOther);
+			setValorDesempate(cartaOther.getValor());
 			return -1;
 		}
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 

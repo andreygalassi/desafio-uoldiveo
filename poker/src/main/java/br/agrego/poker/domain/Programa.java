@@ -12,11 +12,21 @@ public class Programa {
 		Jogador black;
 		Jogador white;
 		try {
-			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 5P");
-			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 6P");
+			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 7P");
+			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 8P");
 			Juiz juiz = new Juiz(black, white);
-			
 			System.out.println(juiz.avalia());
+			
+			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 7P");
+			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 8P");
+			juiz = new Juiz(black, white);
+			System.out.println(juiz.avalia());
+			
+			black = JogadorFactory.constroiJogador("Black", "AP 2C 3O 4E 7P");
+			white = JogadorFactory.constroiJogador("White", "AP 2C 3O 4E 8P");
+			juiz = new Juiz(black, white);
+			System.out.println(juiz.avalia());
+			
 		} catch (MyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

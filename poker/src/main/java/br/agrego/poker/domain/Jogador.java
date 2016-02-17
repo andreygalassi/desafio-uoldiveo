@@ -1,7 +1,7 @@
 package br.agrego.poker.domain;
 
-import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Jogador {
 
@@ -10,7 +10,7 @@ public class Jogador {
 	
 	public Jogador(String nome) {
 		this.nome = nome;
-		this.cartas = new LinkedHashSet<Carta>();
+		this.cartas = new TreeSet<Carta>();
 	}
 	
 	public void addCarta(Carta carta) {

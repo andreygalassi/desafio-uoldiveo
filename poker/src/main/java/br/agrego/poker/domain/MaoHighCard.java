@@ -20,7 +20,7 @@ public class MaoHighCard extends Mao{
 	
 	@Override
 	public String toString() {
-		return "High Card";
+		return "High Card: ";
 	}
 
 	@Override
@@ -32,16 +32,16 @@ public class MaoHighCard extends Mao{
 			cartaOther = iOther.next();
 			if (cartaThis.getValor()==cartaOther.getValor()) continue;
 			if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-				setCartaDesempate(cartaThis);
+				setValorDesempate(cartaThis.getValor());
 				return 1;
 			}
 			if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-				setCartaDesempate(cartaOther);
+				setValorDesempate(cartaOther.getValor());
 				return -1;
 			}
 			
 		}
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 

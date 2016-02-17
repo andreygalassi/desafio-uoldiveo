@@ -1,5 +1,7 @@
 package br.agrego.poker.domain;
 
+import br.agrego.poker.util.MaoFactory;
+
 public class Juiz {
 
 	private static final String	TIE	= " tie ";
@@ -7,45 +9,68 @@ public class Juiz {
 	
 	private final Jogador	jogador1;
 	private final Jogador	jogador2;
-	private final Mao	mao;
+	private final Mao	mao1;
+	private final Mao	mao2;
+	
+	private Mao maoVencedora;
+	private Boolean empate;
+	private Jogador jogadorVencedor;
 
 	public Juiz(Jogador jogador1, Jogador jogador2) {
 		this.jogador1 = jogador1;
 		this.jogador2 = jogador2;
-		this.mao = new MaoStraightFlush(8);
-		Mao m8 = new MaoFourOfAKind(7);
-		Mao m7 = new MaoFullHouse(6);
-		Mao m6 = new MaoStraight(5);
-		Mao m5 = new MaoFlush(4);
-		Mao m4 = new MaoThreeOfKind(3);
-		Mao m3 = new MaoTwoPairs(2);
-		Mao m2 = new MaoPairs(1);
-		Mao m1 = new MaoHighCard(0);
+		this.mao1 = MaoFactory.controiMao();
+		this.mao2 = MaoFactory.controiMao();
 		
-		mao.setProximo(m8);
-		m8.setProximo(m7);
-		m7.setProximo(m6);
-		m6.setProximo(m5);
-		m5.setProximo(m4);
-		m4.setProximo(m3);
-		m3.setProximo(m2);
-		m2.setProximo(m1);
+		this.empate=false;
+		this.maoVencedora=null;
+		this.jogadorVencedor=null;
 	}
 	
 	public String avalia() {
-		Mao maoJogador1 = mao.avalia(jogador1.getCartas());
-		Mao maoJogador2 = mao.avalia(jogador2.getCartas());
+		Mao maoJogador1 = mao1.avalia(jogador1.getCartas());
+		Mao maoJogador2 = mao2.avalia(jogador2.getCartas());
+		
+		String retorno = "";
 		
 		if (maoJogador1.getPonto() > maoJogador2.getPonto()) {
-			return jogador1.getNome() + WINS + maoJogador1;
+			this.jogadorVencedor = jogador1;
+			this.maoVencedora = maoJogador1;
+			retorno = jogador1.getNome() + WINS + maoJogador1;
 		}else if (maoJogador1.getPonto() < maoJogador2.getPonto()) {
-			return jogador2.getNome() + WINS + maoJogador2;
+			this.jogadorVencedor = jogador2;
+			this.maoVencedora = maoJogador2;
+			retorno = jogador2.getNome() + WINS + maoJogador2;
 		}else {
-			if (maoJogador1.desempate(maoJogador2)==-1) return jogador2.getNome() + WINS + maoJogador2;
-			if (maoJogador1.desempate(maoJogador2)==0) return TIE + maoJogador1;
-			if (maoJogador1.desempate(maoJogador2)==1) return jogador1.getNome() + WINS + maoJogador1;
+			if (maoJogador1.desempate(maoJogador2)==-1) {
+				this.jogadorVencedor = jogador2;
+				this.maoVencedora = maoJogador2;
+				retorno = jogador2.getNome() + WINS + maoJogador2 + maoJogador1.getValorDesempate() ;
+			}else if (maoJogador1.desempate(maoJogador2)==0) {
+				this.empate=true;
+				this.maoVencedora = maoJogador1;
+				retorno = TIE + maoJogador1;
+			}else if (maoJogador1.desempate(maoJogador2)==1) {
+				this.jogadorVencedor = jogador1;
+				this.maoVencedora = maoJogador1;
+				retorno = jogador1.getNome() + WINS + maoJogador1 + maoJogador1.getValorDesempate();
+			}
 		}
-		return "";
+		return retorno.trim();
 		
 	}
+
+	public Mao getMaoVencedora() {
+		return maoVencedora;
+	}
+
+	public Boolean getEmpate() {
+		return empate;
+	}
+
+	public Jogador getJogadorVencedor() {
+		return jogadorVencedor;
+	}
+	
+	
 }

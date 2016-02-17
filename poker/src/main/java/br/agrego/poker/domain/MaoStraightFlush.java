@@ -32,7 +32,7 @@ public class MaoStraightFlush extends Mao {
 
 	@Override
 	public String toString() {
-		return "Straight Flush";
+		return "Straight Flush: ";
 	}
 
 	@Override
@@ -41,15 +41,15 @@ public class MaoStraightFlush extends Mao {
 		Carta cartaOther = other.getCartas().iterator().next();
 
 		if (cartaThis.getValor().getValor()>cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaThis);
+			setValorDesempate(cartaThis.getValor());
 			return 1;
 		}
 		if (cartaThis.getValor().getValor()<cartaOther.getValor().getValor()) {
-			setCartaDesempate(cartaOther);
+			setValorDesempate(cartaOther.getValor());
 			return -1;
 		}
 		
-		setCartaDesempate(cartaThis);
+		setValorDesempate(cartaThis.getValor());
 		return 0;
 	}
 
