@@ -16,10 +16,10 @@ public class Carta implements Comparable<Carta> {
 	
 	public Carta(String carta) throws MyException {
 		super();
-		if (carta==null || carta.length()!=2) throw new MyException("Criação de carta inválida");
+		if (carta==null || !(carta.length()==2 || carta.length()==3) ) throw new MyException("Criação de carta inválida");
 		
-		this.valor = EValor.get(carta.toUpperCase().substring(0, 1));
-		this.naipe = ENaipe.get(carta.toUpperCase().substring(1, 2));
+		this.naipe = ENaipe.get(carta.toUpperCase().substring(carta.length()-1,carta.length()));
+		this.valor = EValor.get(carta.toUpperCase().replaceAll(this.naipe.getSimbolo(), ""));
 		
 
 	}

@@ -1,7 +1,16 @@
 package br.agrego.poker.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import br.agrego.poker.exception.MyException;
 import br.agrego.poker.util.MaoFactory;
 
+/**
+ * O juiz é o responsável pelo resultado da disputa.
+ * @author Andrey
+ *
+ */
 public class Juiz {
 
 	private static final String	TIE	= " tie ";
@@ -16,9 +25,12 @@ public class Juiz {
 	private Boolean empate;
 	private Jogador jogadorVencedor;
 
-	public Juiz(Jogador jogador1, Jogador jogador2) {
+	public Juiz(Jogador jogador1, Jogador jogador2) throws MyException {
 		this.jogador1 = jogador1;
 		this.jogador2 = jogador2;
+		
+		validaCartasDasMaos(jogador1.getCartas(),jogador2.getCartas());
+		
 		this.mao1 = MaoFactory.controiMao();
 		this.mao2 = MaoFactory.controiMao();
 		
@@ -27,6 +39,14 @@ public class Juiz {
 		this.jogadorVencedor=null;
 	}
 	
+	private void validaCartasDasMaos(Set<Carta> cartas1, Set<Carta> cartas2) throws MyException {
+		Set<Carta> deck = new HashSet<Carta>();
+		deck.addAll(cartas1);
+		deck.addAll(cartas2);
+		if (deck.size()!=10) throw new MyException("Cartas repetidas em alguma Mão ou quantidade invalida de cartas para um dos jogadores.");
+		
+	}
+
 	public String avalia() {
 		Mao maoJogador1 = mao1.avalia(jogador1.getCartas());
 		Mao maoJogador2 = mao2.avalia(jogador2.getCartas());

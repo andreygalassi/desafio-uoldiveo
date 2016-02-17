@@ -27,4 +27,8 @@ public enum ENaipe {
 		}
 		throw new MyException("Não é um Nipe Válido");
 	}
+
+	public String getSimbolo() {
+		return simbolo;
+	}
 }

@@ -2,6 +2,11 @@ package br.agrego.poker.domain;
 
 import java.util.Set;
 
+/**
+ * Foi decidido usar o padrão Chain of Responsibility para a classificação de cada mão de jogador.
+ * @author Andrey
+ *
+ */
 public abstract class Mao {
 
 	private EValor valorDesempate;

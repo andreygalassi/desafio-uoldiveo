@@ -42,4 +42,8 @@ public enum EValor {
 		}
 		throw new MyException("Não é um Valor Válido");
 	}
+
+	public String getSimbolo() {
+		return simbolo;
+	}
 }
